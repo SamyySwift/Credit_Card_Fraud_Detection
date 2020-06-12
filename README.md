@@ -18,3 +18,6 @@ Since we are predicting a credit card transaction as either valid or frudulent, 
 
 * I instantiated a LinearLearner Estimator passing it important arguments.
 * Finally, I converted the data into Record_set format and fitted it to the estimator.
+
+## **Deployment**
+In this step, I used Amason's inbuilt deployment algorithm to deploy the trained moddel to an endpoint. I then used this to make predictions on the test data and to evaluate the model.
