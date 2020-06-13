@@ -14,7 +14,7 @@ The payment fraud data set (Dal Pozzolo et al. 2015) was downloaded from Kaggle.
 ## **Modelling**
 * In this notebook, I defined and train the SageMaker, built-in algorithm, [LinearLearner](https://sagemaker.readthedocs.io/en/stable/linear_learner.html).
 Since we are predicting a credit card transaction as either valid or frudulent, the problem requires a binary classification algorithm, in which a line is separating two classes of data and effectively outputs labels; either 1 for data that falls above the line or 0 for points that fall on or below the line.
-![](/images/linear_seperator.png)
+![](https://github.com/SamyySwift/Credit_Card_Fraud_Detection/blob/master/images/linear_separator.png)
 
 * I instantiated a LinearLearner Estimator passing it important arguments.
 * Finally, I converted the data into Record_set format and fitted it to the estimator.
@@ -26,8 +26,8 @@ In this step, I used Amason's inbuilt deployment algorithm to deploy the trained
 After the model is deployed, I tested and evaluated the model with the test data and got the following results:
 Metrics for simple, LinearLearner.
 
-prediction (col)    0.0  1.0
-actual (row)                
+>prediction (col)    0.0  1.0
+>actual (row)                
 0.0               85269   33
 1.0                  32  109
 
