@@ -26,8 +26,8 @@ In this step, I used Amason's inbuilt deployment algorithm to deploy the trained
 After the model is deployed, I tested and evaluated the model with the test data and got the following results:
 Metrics for simple, LinearLearner.
 
->prediction (col)    0.0  1.0
->actual (row)                
+prediction (col)    0.0  1.0
+actual (row)                
 0.0               85269   33
 1.0                  32  109
 
