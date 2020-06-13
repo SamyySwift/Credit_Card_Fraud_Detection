@@ -21,3 +21,37 @@ Since we are predicting a credit card transaction as either valid or frudulent, 
 
 ## **Deployment**
 In this step, I used Amason's inbuilt deployment algorithm to deploy the trained moddel to an endpoint. I then used this to make predictions on the test data and to evaluate the model.
+
+## **Model Evaluation**
+After the model is deployed, I tested and evaluated the model with the test data and got the following results:
+Metrics for simple, LinearLearner.
+
+prediction (col)    0.0  1.0
+actual (row)                
+0.0               85269   33
+1.0                  32  109
+
+Recall:     0.773
+Precision:  0.768
+Accuracy:   0.999
+
+As we can see,the default LinearLearner got a high accuracy, but still classified fraudulent and valid data points incorrectly. Specifically classifying more than 30 points as false negatives (incorrectly labeled, fraudulent transactions), and a little over 30 points as false positives (incorrectly labeled, valid transactions).
+
+## **Model Tuning**
+To improve the model's recall and precision, I tuned some hyperparameters of the estimator as showned below.To aim for a specific metric, LinearLearner offers the hyperparameter binary_classifier_model_selection_criteria, which is the model evaluation criteria for the training dataset.
+
+linear_recall = LinearLearner(role=role,
+                              train_instance_count=1, 
+                              train_instance_type='ml.c4.xlarge',
+                              predictor_type='binary_classifier',
+                              output_path=output_path,
+                              sagemaker_session=sagemaker_session,
+                              epochs=15,
+                              binary_classifier_model_selection_criteria='precision_at_target_recall', # target recall
+                              target_recall=0.9) # 90% recall
+                              
+## **Dependencies**
+* Amason SageMaker.
+* Amason s3 console.
+
+
